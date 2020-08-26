@@ -1,0 +1,15 @@
+// var
+@import "variables";
+
+// mixins
+@import "mixins";
+
+// html body
+@import "root";
+
+// animation
+@import "animation";
+
+.root-color {
+    color:pink;
+}

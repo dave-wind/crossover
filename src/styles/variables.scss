@@ -4,6 +4,7 @@
 
 // 中性色 基于e8e8e8
 $white: #ffffff !default;
+$gray-1:#fdfdfd !default;
 $gray-2:#f5f5f5 !default;
 $gray-3:#e8e8e8 !default;
 $gray-4:#c2c2c2 !default;
@@ -19,18 +20,20 @@ $color-2:#d8e6dc !default;
 $color-3:#a9d9b8 !default;
 $color-4:#7ecc9a !default;
 $color-5:#58bf80 !default;
-$color-6:#35b369 !default;
+$color-6:#35b369 !default; // basic
 $color-7:#238c52 !default;
 $color-8:#14663c !default;
 $color-9:#0a4026 !default;
 $color-10:#041a10 !default;
+$color-11: rgb(51, 67, 61) !default; // starbyck color
 
 
 // 自然色系
-$blue: blue !default;
-$yellow: yellow !default;
-$red: red !default;
-$green: green !default;
+$orange: #e6c481 !default;
+$blue: #1890ff !default; // antd color
+$yellow: #FFC300 !default; // meituan color
+$red: #F56C6C !default; // element-ui color
+$green: #00824B !default; // starbucks
 
 
 // 产品
@@ -42,9 +45,157 @@ $success: $color-7 !default;
 $info: $blue !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: $gray-1 !default;
+$light: $gray-2 !default;
 $dark: $gray-7 !default;
+
+
+// theme object
+$theme-colors: ("primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark);
+
+
 
 // 字色
 $fontColor: #33433d;
 $fontGray: rgba(0, 0, 0, 0.56);
+
+$font-family-sans-serif: -apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+"Noto Sans",
+sans-serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol",
+"Noto Color Emoji" !default;
+$font-family-monospace: FMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+"Liberation Mono",
+"Courier New",
+monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+
+// 字体大小
+$font-size-base: 1rem !default; // 16px
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * .875 !default;
+$font-size-root: null !default;
+
+// 字重
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+$font-weight-base: $font-weight-normal !default;
+
+// 行高
+$line-height-base: 1.5 !default;
+$line-height-lg: 2 !default;
+$line-height-sm: 1.25 !default;
+
+// 标题大小
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+// 链接
+$link-color: $green !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+// body
+$body-bg: $gray-1 !default;
+$body-color: $color-11 !default;
+$body-text-align: null !default;
+
+// Spacing
+$spacer: 1rem !default;
+
+// Paragraphs 段落
+$paragraph-margin-bottom: 1rem !default;
+$paragraph-margin-top: 1rem !default;
+
+// 字体其他部分 heading list hr 等等
+$headings-margin-bottom: $spacer !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
+
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: 300 !default;
+
+$small-font-size: .875em !default;
+
+$sub-sup-font-size: .75em !default;
+
+$text-muted: $gray-6 !default;
+
+$initialism-font-size: $small-font-size !default;
+
+$blockquote-small-color: $gray-6 !default;
+$blockquote-small-font-size: $small-font-size !default;
+$blockquote-font-size: $font-size-base * 1.25 !default;
+
+// hr
+$hr-color: inherit !default;
+$hr-height: 1px !default;
+$hr-opacity: .25 !default;
+$hr-margin-y: $spacer !default;
+
+
+$legend-margin-bottom: .5rem !default;
+$legend-font-size: 1.5rem !default;
+$legend-font-weight: null !default;
+
+// mark
+$mark-padding: .2em !default;
+$mark-bg: #fcf8e3 !default;
+
+$dt-font-weight: $font-weight-bold !default;
+
+$nested-kbd-font-weight: $font-weight-bold !default;
+
+$list-inline-padding: .5rem !default;
+
+// Code
+
+$code-font-size: $small-font-size !default;
+$code-color: $orange !default;
+$pre-color: null !default;
+
+// options 可配置选项
+$enable-pointer-cursor-for-buttons: true !default;
+
+
+// 边框 和 border radius
+
+$border-width: 1px !default;
+$border-color: $gray-3 !default;
+
+$border-radius: .25rem !default;
+$border-radius-lg: .3rem !default;
+$border-radius-sm: .2rem !default;
+
+// 不同类型的 box shadow
+$box-shadow-sm: 0 .125rem .25rem rgba($black, .075) !default;
+$box-shadow: 0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
+$box-shadow-inset: inset 0 1px 2px rgba($black, .075) !default;
