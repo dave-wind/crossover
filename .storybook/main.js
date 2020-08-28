@@ -4,11 +4,12 @@ module.exports = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
+    "@storybook/addon-knobs",
+    "@storybook/addon-controls",
     "@storybook/addon-actions",
     "@storybook/addon-links",
     "@storybook/addon-viewport",
     '@storybook/addon-storysource',
-    "@storybook/addon-knobs",
 		{ name: "@storybook/addon-docs", options: { configureJSX: true } },
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",

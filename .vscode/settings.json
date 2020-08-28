@@ -1,16 +1,8 @@
 {
-    "eslintConfig": {
-      "extends": ["react-app", "shared-config"],
-      "rules": {
-        "additional-rule": "warn"
-      },
-      "overrides": [
-        {
-          "files": ["**/*.ts?(x)"],
-          "rules": {
-            "additional-typescript-only-rule": "warn"
-          }
-        }
-      ]
-    }
-  }
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ]
+}

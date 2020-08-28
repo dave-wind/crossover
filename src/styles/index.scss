@@ -10,6 +10,7 @@
 // animation
 @import "animation";
 
-.root-color {
-    color:pink;
-}
+@import "page";
+
+// Button
+@import "../components/Button/style.scss";

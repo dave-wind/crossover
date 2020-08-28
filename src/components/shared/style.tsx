@@ -1,35 +1,46 @@
 // import { css } from "styled-components";
 
 export const color = {
+	$primary: '#35b369',
+	$secondary: '#e8e8e8',
+	$green: '#00824B',
+	$orange: '#e6c481',
+	$blue: '#1890ff',
+	$yellow: '#FFC300',
+	$red: '#F56C6C',
+	$lightGreen: '#edf8f3',
+	$fontColor: '#33433d',
+	$light: '#f5f5f5',
+	$dark: '#4f4f4f',
+	$success: '#238c52',
+	$info: '#1890ff',
+	$warning: '#FFC300',
+	$danger: '#F56C6C',
+
 	// Palette
-	primary: "#FF4785",
-	secondary: "#1EA7FD",
-	tertiary: "#DDDDDD",
-
-	orange: "#FC521F",
-	gold: "#FFAE00",
-	green: "#66BF3C",
-	seafoam: "#37D5D3",
-	purple: "#6F2CAC",
-	ultraviolet: "#2A0481",
-
-	// Monochrome
-	lightest: "#FFFFFF",
-	lighter: "#F8F8F8",
-	light: "#F3F3F3",
-	mediumlight: "#EEEEEE",
-	medium: "#DDDDDD",
-	mediumdark: "#999999",
-	dark: "#666666",
-	darker: "#444444",
-	darkest: "#333333",
-
-	border: "rgba(0,0,0,.1)",
-
-	// Status
-	positive: "#66BF3C",
-	negative: "#FF4400",
-	warning: "#E69D00",
+	monoChrome: [
+		'#000000',
+		'#4f4f4f',
+		'#757575',
+		'#9c9c9c',
+		'#c2c2c2',
+		'#e8e8e8',
+		'#f5f5f5',
+		'#fdfdfd',
+		'#ffffff'
+	],
+	baseColor: [
+		'#041a10',
+		'#0a4026',
+		'#14663c',
+		'#238c52',
+		'#35b369',
+		'#58bf80',
+		'#7ecc9a',
+		'#a9d9b8',
+		'#d8e6dc',
+		'#e4f2e7'
+	]
 };
 
 export const background = {
