@@ -6,6 +6,7 @@
         "declaration": true,
         "jsx": "react",
         "moduleResolution": "node",
+        "types": ["react", "jest"],
         "allowSyntheticDefaultImports": true
     },
     "include": [

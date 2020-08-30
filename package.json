@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.54",
-    "@types/react": "^16.9.46",
-    "@types/react-dom": "^16.9.8",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -16,11 +12,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build-ts && npm run build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-ts":"tsc -p tsconfig.build.json",
-    "build-css":"node-sass ./src/styles/index.scss ./build/index.css",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -57,9 +53,14 @@
     "@testing-library/react": "^10.4.8",
     "@testing-library/user-event": "^7.2.1",
     "@types/classnames": "^2.2.10",
+    "@types/jest": "^26.0.10",
+    "@types/node": "^14.6.2",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1",
+    "rimraf": "^3.0.2",
     "styled-components": "^5.1.1"
   }
 }
