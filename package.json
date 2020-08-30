@@ -1,5 +1,5 @@
 {
-  "name": "crossover",
+  "name": "crossover-ui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +9,6 @@
     "@types/react-dom": "^16.9.8",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
-    "polished": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
@@ -20,6 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build-ts":"tsc -p tsconfig.build.json",
+    "build-css":"node-sass ./src/styles/index.scss ./build/index.css",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },

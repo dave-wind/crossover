@@ -1,3 +1,6 @@
+// function
+@import "functions";
+
 // var
 @import "variables";
 
@@ -13,4 +16,10 @@
 @import "page";
 
 // Button
-@import "../components/Button/style.scss";
+@import "../components/Button/style";
+
+// Badge
+@import "../components/Badge/style";
+
+// Radio
+@import "../components/Radio/style";

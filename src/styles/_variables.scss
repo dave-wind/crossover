@@ -60,6 +60,43 @@ $theme-colors: ("primary": $primary,
     "dark": $dark);
 
 
+$direction: ('t': 'top',
+    'r': 'right',
+    'b': 'bottom',
+    'l': 'left');
+
+
+$mg-8:mapValByDirection(8);
+
+//
+$mg-16:mapValByDirection(16);
+
+
+@each $key,
+$val in $mg-8 {
+    $item: map-get($direction, $key);
+
+    .m#{$key}-#{$val} {
+        margin-#{$item}: $val + px;
+    }
+}
+
+// for 循环 map => marign
+@each $key,
+$val in $mg-16 {
+    $item: map-get($direction, $key);
+
+    .m#{$key}-#{$val} {
+        margin-#{$item}: $val + px;
+    }
+}
+
+@each $key,
+$val in $theme-colors {
+    .color-#{$key} {
+        background-color: $val;
+    }
+}
 
 // 字色
 $fontColor: #33433d;
@@ -89,7 +126,7 @@ $font-family-base: $font-family-sans-serif !default;
 // 字体大小
 $font-size-base: 1rem * .875 !default; // 16px
 $font-size-lg: 1rem !default;
-$font-size-sm: $font-size-base !default;
+$font-size-sm: $font-size-base * .75 !default;
 $font-size-root: null !default;
 
 // 字重
@@ -246,3 +283,5 @@ $btn-transition: color .15s ease-in-out,
 background-color .15s ease-in-out,
 border-color .15s ease-in-out,
 box-shadow .15s ease-in-out !default;
+
+//Badge

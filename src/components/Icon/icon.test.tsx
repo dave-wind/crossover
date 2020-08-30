@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import { Icon, IconProps } from "./index";
-import { icons } from "./icons";
+import { Icon, IconProps } from "./icon";
+import { icons } from "./icons-svg";
 
 function IconTest(icon: IconProps["icon"]) {
     const wrapper = render(<Icon icon={icon}></Icon>);

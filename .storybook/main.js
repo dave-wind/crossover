@@ -5,12 +5,12 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-knobs",
-    "@storybook/addon-controls",
     "@storybook/addon-actions",
     "@storybook/addon-links",
     "@storybook/addon-viewport",
     '@storybook/addon-storysource',
-		{ name: "@storybook/addon-docs", options: { configureJSX: true } },
+    { name: "@storybook/addon-docs", options: { configureJSX: true } },
+    "@storybook/addon-controls",
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "@storybook/preset-create-react-app"

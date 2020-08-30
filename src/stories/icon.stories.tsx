@@ -3,7 +3,6 @@ import { Icon, IconProps } from "../components/Icon/icon";
 import { withKnobs, color, select } from "@storybook/addon-knobs";
 import styled from "styled-components";
 import { icons } from "../components/Icon/icons-svg";
-import { render, cleanup } from "@testing-library/react";
 
 export default {
     title: "Icon",
@@ -11,12 +10,12 @@ export default {
     decorators: [withKnobs],
 };
 
-export const knobsIcon = () => (
+export const SingleIcon = () => (
     <Icon
         icon={select<IconProps["icon"]>(
             "icons",
             Object.keys(icons) as IconProps["icon"][],
-            "mobile"
+            "key"
         )}
         block
         color={color("color", "black")}
@@ -45,7 +44,7 @@ const Item = styled.li`
 		height: 24px;
 	}
 `;
-export const labels = () => (
+export const All = () => (
     <>
         There are {Object.keys(icons).length} icons
         <List>

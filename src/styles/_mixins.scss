@@ -36,6 +36,21 @@
   }
 }
 
+/*
+*
+*/
+@mixin badge-style($theme, $color:null) {
+  @if $color != null {
+    color: $color;
+    background: $theme;
+  }
+
+  @else {
+    color: lighten($theme, 60%);
+    background: $theme;
+  }
+}
+
 @mixin m($direction:'top', $val:8px) {
   margin-#{$direction}: $val;
 }
@@ -43,6 +58,20 @@
 @mixin p($direction:'top', $val:8px) {
   padding-#{$direction}: $val;
 }
+
+// @mixin marginStyle($num) {
+
+//   @each $key,
+//   $val in $mg-#{num} {
+//     $item: map-get($direction, $key);
+
+//     .m#{$key}-#{$val} {
+//       margin-#{$item}: $val;
+//     }
+//   }
+
+// }
+
 
 @mixin zoom-animation($direction: 'top',
   $scaleStart: scaleY(0),

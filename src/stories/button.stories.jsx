@@ -15,7 +15,7 @@ export default {
 };
 
 
-export const 通用展示 = () => {
+export const 基础 = () => {
 	return (
 		<>
 			<h4>通用样式</h4>
@@ -31,11 +31,11 @@ export const 通用展示 = () => {
 	)
 }
 
-export const 功能展示 = () => {
+export const 功能 = () => {
 	const count = number('数量', 1, { min: 0, max: 50, range: true });
 	const label = text('内容', 'button');
 	const size = select('尺寸', ['common', 'lg', 'sm'], 'common')
-	const btnType = select('类型', ['default', 'primary', 'danger', 'link'], 'primary')
+	const btnType = select('类型', ['default', 'primary','info', 'danger', 'link'], 'primary')
 	console.log('btnType', btnType)
 	return (
 		<>

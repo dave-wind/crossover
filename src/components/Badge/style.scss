@@ -1,0 +1,52 @@
+.badge {
+    display: inline-block;
+    padding: $btn-padding-y $btn-padding-x;
+    font-size: $font-size-base;
+    font-weight: 700;
+    line-height: $line-height-base;
+    vertical-align: top;
+    border-radius: 3em;
+    @include badge-style($primary);
+    svg {
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+        margin-top: -2px;
+    }
+}
+
+/*
+* em作为font-size的单位时，其代表父元素的字体大小，
+* em作为其他属性单位时，代表自身字体大小
+*/
+.badge-lg {
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: 2.5em;
+}
+
+.badge-sm {
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    font-size: $btn-font-size-sm;
+    border-radius: 2.5em;
+}
+
+.badge-primary {
+    @include badge-style($primary);
+}
+
+.badge-info {
+    @include badge-style($info);
+}
+
+.badge-error {
+    @include badge-style($danger);
+}
+
+.badge-warning {
+    @include badge-style($warning);
+}
+
+.badge-gray {
+    @include badge-style($gray-4);
+}

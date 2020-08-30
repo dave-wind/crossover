@@ -2,26 +2,6 @@
     position: relative;
 }
 
-.mt-8 {
-    @include m('top');
-}
-
-.mr-8 {
-    @include m('right');
-}
-
-.mb-8 {
-    @include m('bottom');
-}
-
-.mb-16 {
-    @include m('bottom', 16px);
-}
-
-.ml-8 {
-    @include m('left');
-}
-
 .float-l {
     float: left;
 }
@@ -35,6 +15,7 @@
     padding: 8px 8px 8px 15px;
     color: $gray-5;
     background-color: $light-green;
+
     &::before {
         display: inline-block;
         position: absolute;

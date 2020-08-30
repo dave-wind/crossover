@@ -1,0 +1,97 @@
+// .radio-wrapper {
+//     display: flex;
+//     align-items: center;
+//     flex-wrap: wrap;
+
+//     label {
+//         display: flex;
+//         align-items: center;
+//         cursor: pointer;
+//         font-size: $font-size-base;
+//         font-weight: 700;
+//         position: relative;
+//         height: 1em;
+//     }
+// }
+
+@mixin radio-style($theme, $hover) {
+    // $bg: lighten($theme, 10%);
+
+    &:hover {
+        // background: rgba(53, 179, 105, .2);
+        background: $hover;
+    }
+
+    input {
+        margin: 0 0.4em 0 0;
+        font-size: initial;
+        opacity: 0;
+
+        &+span {
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 1em;
+                width: 1em;
+                content: "";
+                display: block;
+                border-radius: 3em;
+            }
+        }
+
+        &+span:before {
+            box-shadow: $theme 0 0 0 1px inset;
+        }
+
+        &:focus+span:before {
+            box-shadow: $theme 0 0 0 1px inset;
+        }
+
+        &:checked+span:before {
+            box-shadow: $theme 0 0 0 1px inset;
+        }
+
+        &:checked:focus+span:before {
+            box-shadow: $theme 0 0 0 1px inset, $hover 0 0 5px 2px;
+        }
+
+        &+span:after {
+            transition: all 150ms ease-out;
+            transform: scale3d(0, 0, 1);
+            height: 10px;
+            margin-left: 2px;
+            margin-top: 2px;
+            width: 10px;
+            opacity: 0;
+        }
+
+        &:checked+span:after {
+            transform: scale3d(1, 1, 1);
+            background: $theme;
+            opacity: 1;
+        }
+    }
+}
+
+.radio-wrapper-primary {
+
+    @include radio-style($primary, rgba(53, 179, 105, .3));
+}
+
+.radio-wrapper-danger {
+
+    @include radio-style($danger, rgba(245, 108, 108, .3));
+}
+
+.radio-wrapper-info {
+
+    @include radio-style($info, rgba(24, 144, 255, .3));
+}
+
+.radio-wrapper-warning {
+
+    @include radio-style($warning, rgba(255, 195, 0, .3));
+}

@@ -1,48 +1,55 @@
 // import { css } from "styled-components";
 
+import { rgb } from "polished";
+
 export const color = {
-	$primary: '#35b369',
-	$secondary: '#e8e8e8',
-	$green: '#00824B',
-	$orange: '#e6c481',
-	$blue: '#1890ff',
-	$yellow: '#FFC300',
-	$red: '#F56C6C',
-	$lightGreen: '#edf8f3',
-	$fontColor: '#33433d',
-	$light: '#f5f5f5',
-	$dark: '#4f4f4f',
-	$success: '#238c52',
-	$info: '#1890ff',
-	$warning: '#FFC300',
-	$danger: '#F56C6C',
-
-	// Palette
-	monoChrome: [
-		'#000000',
-		'#4f4f4f',
-		'#757575',
-		'#9c9c9c',
-		'#c2c2c2',
-		'#e8e8e8',
-		'#f5f5f5',
-		'#fdfdfd',
-		'#ffffff'
-	],
-	baseColor: [
-		'#041a10',
-		'#0a4026',
-		'#14663c',
-		'#238c52',
-		'#35b369',
-		'#58bf80',
-		'#7ecc9a',
-		'#a9d9b8',
-		'#d8e6dc',
-		'#e4f2e7'
-	]
+	primary: '#35b369',
+	secondary: '#e8e8e8',
+	green: '#00824B',
+	orange: '#e6c481',
+	blue: '#1890ff',
+	yellow: '#FFC300',
+	red: '#F56C6C',
+	lightGreen: '#edf8f3',
+	fontColor: '#33433d',
+	light: '#f5f5f5',
+	dark: '#4f4f4f',
+	success: '#238c52',
+	info: '#1890ff',
+	warning: '#FFC300',
+	danger: '#F56C6C',
 };
+export const rgbColor = {
+	primary: rgb(53,179,105),
+	info: rgb(24,144,255),
+	warning: rgb(255,195,0),
+	danger: rgb(245,108,108),
+}
+// Palette
+export const monoChrome = [
+	'#000000',
+	'#4f4f4f',
+	'#757575',
+	'#9c9c9c',
+	'#c2c2c2',
+	'#e8e8e8',
+	'#f5f5f5',
+	'#fdfdfd',
+	'#ffffff'
+]
 
+export const baseColor = [
+	'#041a10',
+	'#0a4026',
+	'#14663c',
+	'#238c52',
+	'#35b369',
+	'#58bf80',
+	'#7ecc9a',
+	'#a9d9b8',
+	'#d8e6dc',
+	'#e4f2e7'
+]
 export const background = {
 	app: "#F6F9FC",
 	appInverse: "#7A8997",

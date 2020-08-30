@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, AnchorHTMLAttributes, FC } from "react";
-import classNames from 'classnames'
+import classNames from 'classnames';
 
 export type ButtonSize = 'lg' | 'sm'
 
@@ -9,7 +9,7 @@ interface BasicButtonProps {
 	className?: string;
 	disabled?: boolean;
 	size?: ButtonSize;
-	btnType?: ButtonType; 	/**设置 Button 的类型 123 */
+	btnType?: ButtonType; 	/**设置 Button 的类型 */
 	children: React.ReactNode;
 	href?: string;
 }

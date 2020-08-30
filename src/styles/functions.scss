@@ -1,0 +1,6 @@
+@function mapValByDirection($val) {
+    @return ('t': $val,
+        'r': $val,
+        'b': $val,
+        'l': $val);
+}
