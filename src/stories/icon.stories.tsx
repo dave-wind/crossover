@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, IconProps } from "../components/Icon/icon";
+import Icon, { IconProps } from "../components/Icon/icon";
 import { withKnobs, color, select } from "@storybook/addon-knobs";
 import styled from "styled-components";
 import { icons } from "../components/Icon/icons-svg";
@@ -50,7 +50,7 @@ export const All = () => (
         <List>
             {Object.keys(icons).map((key) => (
                 <Item key={key}>
-                    <Icon icon={key as keyof typeof icons}  />
+                    <Icon icon={key as keyof typeof icons} />
                     <Meta>{key}</Meta>
                 </Item>
             ))}

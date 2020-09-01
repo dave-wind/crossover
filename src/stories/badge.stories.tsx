@@ -1,6 +1,6 @@
 import React from "react";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { Icon } from "../components/Icon/icon";
+import Icon from "../components/Icon/icon";
 import Badge, { BadgeProps, TypeProps } from '../components/Badge/badge';
 
 export default {
@@ -16,7 +16,7 @@ export const 基础 = () => {
     const typeList = select<BadgeProps['theme']>('类型', list as TypeProps[], 'primary')
     return (
         <Badge
-        theme={typeList}
+            theme={typeList}
         >
             {text("文案", "badge")}
         </Badge>
@@ -34,7 +34,7 @@ export const 全部 = () => (
 
 export const 图标 = () => (
     <Badge theme="warning">
-        <Icon icon="check" color="#fff"/>
+        <Icon icon="check" color="#fff" />
         with icon
     </Badge>
 );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 import { icons } from "./icons-svg";
@@ -29,7 +29,7 @@ const Path = styled.path`
     fill: ${(props) => props.color};
 `;
 
-export function Icon(props: IconProps) {
+const Icon: FC<IconProps> = (props) => {
     const { block, icon, color, width, height } = props;
     return (
         <Svg
@@ -51,3 +51,5 @@ Icon.defaultProps = {
     width: '22',
     height: '20'
 };
+
+export default Icon

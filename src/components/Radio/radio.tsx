@@ -1,4 +1,4 @@
-import React, { ReactNode, AllHTMLAttributes } from "react";
+import React, { FC, ReactNode, AllHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
 import { rgbColor, typography } from "../shared/style";
 
@@ -73,7 +73,7 @@ export interface RadioProps extends Omit<AllHTMLAttributes<HTMLInputElement>, "a
     wrapperClass?: string;
 }
 
-export function Radio(props: RadioProps) {
+const Radio: FC<RadioProps> = (props) => {
     const {
         wrapperClass,
         error,

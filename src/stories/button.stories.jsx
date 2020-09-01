@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 // import { storiesOf } from '@storybook/react'
-import { Button } from "../components/Button/button";
+import Button from "../components/Button";
 import range from 'lodash/range';
 import { number, text, select } from '@storybook/addon-knobs';
 
@@ -35,7 +35,7 @@ export const 功能 = () => {
 	const count = number('数量', 1, { min: 0, max: 50, range: true });
 	const label = text('内容', 'button');
 	const size = select('尺寸', ['common', 'lg', 'sm'], 'common')
-	const btnType = select('类型', ['default', 'primary','info', 'danger', 'link'], 'primary')
+	const btnType = select('类型', ['default', 'primary', 'info', 'danger', 'link'], 'primary')
 	console.log('btnType', btnType)
 	return (
 		<>

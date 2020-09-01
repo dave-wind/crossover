@@ -1,9 +1,9 @@
 import React from "react";
-import { Radio } from "../components/Radio/radio";
+import Radio from "../components/Radio/radio";
 import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import { rgbColor } from "../components/shared/style";
-import { Icon } from "../components/Icon/icon";
+import Icon from "../components/Icon/icon";
 
 export default {
     title: "Radio",
@@ -14,7 +14,7 @@ export default {
 
 const onChange = action("change");
 
-export const 基础 = () => (   
+export const 基础 = () => (
     <Radio
         appearance={select<keyof typeof rgbColor>(
             "color",
@@ -50,7 +50,7 @@ export const 图标 = () => (
     <Radio
         label={
             <span>
-				<Icon icon="key"></Icon> icon
+                <Icon icon="key"></Icon> icon
 			</span>
         }
     ></Radio>

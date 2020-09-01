@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, PropsWithChildren } from "react";
+import React, { FC, HTMLAttributes, PropsWithChildren } from "react";
 import classNames from 'classnames';
 
 export type TypeProps = 'primary' | 'info' | 'error' | 'warning' | 'gray';
@@ -9,8 +9,8 @@ export interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
     size?: 'lg' | 'sm';
 }
 
-export function Badge(props: PropsWithChildren<BadgeProps>) {
-    const { className,theme, size, ...resetProps } = props;
+const Badge: FC<PropsWithChildren<BadgeProps>> = (props) => {
+    const { className, theme, size, ...resetProps } = props;
     const classes = classNames('badge', className, {
         [`badge-${theme}`]: theme,
         [`badge-${size}`]: size,

@@ -28,7 +28,7 @@ type IPartial<T> = {
 export type ButtonProps = IPartial<NativeButtonProps & NativeALinkProps>
 
 
-export const Button: FC<ButtonProps> = (props) => {
+const Button: FC<ButtonProps> = (props) => {
 	const { btnType, className, disabled, size, children, href, ...restProps } = props
 	const classes = classNames('btn', className, {
 		[`btn-${btnType}`]: btnType,
@@ -46,3 +46,4 @@ Button.defaultProps = {
 	disabled: false,
 	btnType: 'default'
 }
+export default Button
