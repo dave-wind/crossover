@@ -1,12 +1,12 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 // import { storiesOf } from '@storybook/react'
-import Button from "../components/Button";
+import Button, { BtnSize, BtnType } from "../components/Button";
 import range from 'lodash/range';
 import { number, text, select } from '@storybook/addon-knobs';
 
 export default {
-	title: "Button组件",
+	title: "Button",
 	component: Button,
 	Subcomponents: { // 其他组件
 	},
@@ -44,8 +44,8 @@ export const 功能 = () => {
 			{range(count).map((i) => (
 				<Button
 					onClick={action('you can use Knobs')} key={i}
-					size={size}
-					btnType={btnType}
+					size={size as BtnSize}
+					btnType={btnType as BtnType}
 					className="mr-8 mb-8">{`${label} ${i}`}</Button>
 			))}
 		</>

@@ -14,8 +14,8 @@
   ],
   "homepage": "https://github.com/dave-wind/crossover",
   "repository": {
-    "type":"git",
-    "url":"https://github.com/dave-wind/crossover"
+    "type": "git",
+    "url": "https://github.com/dave-wind/crossover"
   },
   "files": [
     "build"
@@ -74,6 +74,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.10",
+    "@types/lodash": "^4.14.161",
     "@types/node": "^14.6.2",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
@@ -82,10 +83,10 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
     "react-is": "^16.13.1",
+    "react-scripts": "3.4.3",
     "rimraf": "^3.0.2",
-    "typescript": "^3.7.5",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "typescript": "^3.7.5"
   }
 }
