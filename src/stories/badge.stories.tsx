@@ -10,6 +10,7 @@ export default {
 };
 
 const list = ['primary', 'info', 'error', 'warning', 'gray']
+
 export const 基础 = () => {
     // 断言
     const typeList = select<BadgeProps['theme']>('类型', list as TypeProps[], 'primary')
