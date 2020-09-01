@@ -3,7 +3,7 @@ import React from "react";
 import Swiper from "../components/Swiper";
 
 export default {
-    title: "Swiper组件",
+    title: "Swiper",
     component: Swiper,
 };
 
