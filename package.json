@@ -21,7 +21,9 @@
     "build"
   ],
   "dependencies": {
-    "classnames": "^2.2.6"
+    "@material-ui/pickers": "^3.2.10",
+    "classnames": "^2.2.6",
+    "polished": "^3.6.5"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
