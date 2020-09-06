@@ -1,6 +1,6 @@
 import React, {
+    FC,
     CSSProperties,
-    RefObject,
     useMemo,
     useState,
     useRef,
@@ -11,25 +11,10 @@ import { color } from "../shared/style";
 import { rgba } from "polished";
 import { modalOpenAnimate, modalCloseAnimate } from "../shared/animation";
 import { useStateAnimation } from "../../hooks/useStateAnimation"
+import { useClickOutside } from "../../hooks/useClickOutside"
 import Button from "../Button";
 import Icon from "../Icon";
 
-// 判定点击组件外
-export function useClickOutside(
-    ref: RefObject<HTMLElement>,
-    handler: Function
-) {
-    useEffect(() => {
-        const listener = (event: MouseEvent) => {
-            if (!ref.current || ref.current.contains(event.target as Node)) {
-                return;
-            }
-            handler(event);
-        };
-        window.addEventListener("click", listener);
-        return () => window.removeEventListener("click", listener);
-    }, [ref, handler]);
-}
 
 const CalendarWrapper = styled.div<{ visible: boolean; delay: number }>`
     position: absolute;
@@ -166,6 +151,7 @@ interface DateItem {
     isonMonth: boolean; //当月
     isonDay: boolean; //当日
     origin: Date;
+    getTime: number; // 时间戳
 }
 
 const isCurrentMonth = function (
@@ -180,7 +166,7 @@ const isCurrentDay = function (current: Date, day: number, onMonth: boolean) {
     return current.getDate() === day && onMonth;
 };
 
-const getDateData = function (year: number, month: number, day: number) {
+const getDateData = function (year: number, month: number, day: number, action: string) {
     const firstDay = new Date(year, month, 1);
     let weekDay = firstDay.getDay(); //周日，0，周六 6
     weekDay = weekDay === 0 ? 7 : weekDay;
@@ -189,11 +175,13 @@ const getDateData = function (year: number, month: number, day: number) {
     for (let i = 0; i < 42; i++) {
         let current = new Date(start + i * 60 * 60 * 24 * 1000);
         let onMonth = isCurrentMonth(current, year, month);
+
         arr.push({
             day: current.getDate(),
             isonMonth: onMonth,
-            isonDay: isCurrentDay(current, day, onMonth),
+            isonDay: isCurrentDay(current, day, onMonth) && action === 'click',
             origin: current,
+            getTime: current.getTime()
         });
     }
     let k = -1;
@@ -206,6 +194,14 @@ const getDateData = function (year: number, month: number, day: number) {
 const getYearMonthDay = function (date: number): calDataType {
     let tmp = new Date(date);
     return [tmp.getFullYear(), tmp.getMonth(), tmp.getDay()];
+};
+
+// 字符串 转 Date getTime
+const getTimeByDateString = function (date: string): number {
+    let arr = date.split('-').map(itm => parseInt(itm));
+    const month = arr[1] - 1
+    let result = new Date(arr[0], month, arr[2]).getTime()
+    return result;
 };
 
 const getStartYear = function (calData: calDataType) {
@@ -242,7 +238,7 @@ export type DatepickerProps = {
     classname?: string;
 };
 
-function DatePicker(props: DatepickerProps) {
+const DatePicker: FC<DatepickerProps> = (props) => {
     const { callback, initDate, delay = 200 } = props;
     const [mode, setMode] = useState<modeType>('date');
 
@@ -258,27 +254,38 @@ function DatePicker(props: DatepickerProps) {
         new Date().getMonth(),
         new Date().getDate(),
     ]);
-
-    const [state, setState] = useState(() => {
+    const defaultVal = () => {
         if (initDate && validateDate(initDate)) {
             return initDate;
         } else {
             return generateDate(calData);
         }
-    });
+    }
 
+    const [state, setState] = useState(defaultVal());
+
+    const [inputVal, setInputVal] = useState(defaultVal());
+
+    // 用户行为
+    const [action, setAction] = useState('click')
+
+    console.log('state', state)
+    console.log('calData', calData)
     useEffect(() => {
         if (callback) callback(state);
     }, [state, callback]);
 
     const dayData = useMemo(() => {
         const [year, month, day] = state.split('-');
-        const arr = getDateData(Number(year), Number(month), Number(day)); //传的8实际是9
+        const currentMonth = parseInt(month) - 1
+        const arr = getDateData(Number(year), Number(currentMonth), Number(day), action);
         return arr;
-    }, [state]);
+    }, [state, action]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setState(e.target.value);
+        setAction('click')
+        setInputVal(e.target.value)
     };
 
     const handleClick = () => {
@@ -292,6 +299,7 @@ function DatePicker(props: DatepickerProps) {
             if (!res) {
                 //错误用原来的
                 setState(generateDate(calData));
+                setInputVal(generateDate(calData))
             } else {
                 //否则计算新值
                 let p = state.split("-");
@@ -307,6 +315,7 @@ function DatePicker(props: DatepickerProps) {
                 ];
                 setCalData(newCal);
                 setState(generateDate(newCal));
+                setInputVal(generateDate(newCal))
             }
         }
     };
@@ -329,18 +338,21 @@ function DatePicker(props: DatepickerProps) {
                     <CalendarDateRow key={index}>
                         {v.map((k, i) => (
                             <CalendarDate
-                                isonDay={k.isonDay}
+                                isonDay={getTimeByDateString(inputVal) === k.getTime}
                                 isonMonth={k.isonMonth}
                                 key={i}
                                 onClick={() => {
                                     const origin = k.origin;
                                     const newCal: calDataType = [
                                         origin.getFullYear(),
-                                        origin.getMonth() - 1,
+                                        origin.getMonth(),
                                         origin.getDate(),
                                     ];
+                                    console.log('item newCal--', k)
                                     setCalData(newCal);
                                     setState(generateDate(newCal));
+                                    setInputVal(generateDate(newCal));
+                                    setAction('click')
                                     setst(false);
                                 }}
                             >
@@ -364,9 +376,15 @@ function DatePicker(props: DatepickerProps) {
                             key={i}
                             onClick={() => {
                                 //获取当前月，与点击相减得差
-                                let diff = v - calData[1] - 1;
-                                let res = changeCalData(diff > 0, calData);
+                                let currentMonth = v - 1;
+                                console.log('month--current--', v)
+                                console.log('calData--', calData)
+                                let res = changeCalData(currentMonth, calData);
+                                console.log('!!!!!', res)
                                 setCalData(res);
+                                setState(generateDate(res))
+                                setInputVal(generateDate(res))
+                                console.log('month---click', generateDate(res))
                                 setMode("date");
                             }}
                         >
@@ -380,10 +398,10 @@ function DatePicker(props: DatepickerProps) {
     const startYear = getStartYear(calData);
     const yearMap = new Array(12).fill(1).map((_x, y) => startYear + y - 1);
 
+    // 年份
     const modeYear = (
         <MonthWrapper
-            style={{ display: mode === "year" ? "flex" : "none" }}
-        >
+            style={{ display: mode === "year" ? "flex" : "none" }}>
             {yearMap.map((v, i) => (
                 <MonthItem
                     toGrey={i === 0 || i === 11}
@@ -403,21 +421,25 @@ function DatePicker(props: DatepickerProps) {
     );
 
     const changeCalData = function (
-        sign: boolean,
+        sign: boolean | number,
         calData: calDataType
     ): calDataType {
         const oldDate = new Date(calData[0], calData[1]);
-        if (sign) {
-            //true是减少false是增加
-            const newDate = oldDate.setMonth(oldDate.getMonth() - 1);
+        console.log('oldDate--calData[1]', calData[1]);
+        if (typeof sign === 'boolean') {
+            // 表头栏 前后切换月份
+            const val = sign ? -1 : 1
+            const newDate = oldDate.setMonth(oldDate.getMonth() + val);
             return getYearMonthDay(newDate);
         } else {
-            const newDate = oldDate.setMonth(oldDate.getMonth() + 1);
+            // 选择对应 年月 月份
+            const newDate = new Date(calData[0], sign).getTime();
             return getYearMonthDay(newDate);
         }
     };
 
     const changeCalYear = function (sign: number, calData: calDataType) {
+        console.log('year--calData', calData)
         const oldDate = new Date(calData[0], calData[1]);
         const newDate = oldDate.setFullYear(oldDate.getFullYear() + sign);
         return getYearMonthDay(newDate);
@@ -433,7 +455,10 @@ function DatePicker(props: DatepickerProps) {
             } else {
                 res = changeCalYear(-10, calData);
             }
+            console.log('res', res)
+            setAction('prev')
             setCalData(res);
+            setState(generateDate(res));
         };
 
         const handleRight = () => {
@@ -445,7 +470,10 @@ function DatePicker(props: DatepickerProps) {
             } else {
                 res = changeCalYear(10, calData);
             }
+            console.log('res next---', res)
+            setAction('next')
             setCalData(res);
+            setState(generateDate(res));
         };
 
         if (!show) {
@@ -483,8 +511,7 @@ function DatePicker(props: DatepickerProps) {
                                                     ? "inline-block"
                                                     : "none",
                                         }}
-                                    >{`${startYear}-${startYear +
-                                        9}`}</Bwrapper>
+                                    >{`${startYear}-${startYear + 9}`}</Bwrapper>
                                     <Bwrapper
                                         onClick={() => {
                                             setMode("year");
@@ -526,7 +553,6 @@ function DatePicker(props: DatepickerProps) {
 
                         <div
                             style={{
-                                // width: "240px",
                                 display: "flex",
                                 justifyContent: "center",
                             }}
@@ -546,7 +572,7 @@ function DatePicker(props: DatepickerProps) {
             <input
                 aria-label="date picker"
                 onBlur={handleBlur}
-                value={state}
+                value={inputVal}
                 onChange={handleChange}
                 style={{ border: "none", boxShadow: "none", outline: "none" }}
             ></input>
