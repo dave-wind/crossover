@@ -377,14 +377,10 @@ const DatePicker: FC<DatepickerProps> = (props) => {
                             onClick={() => {
                                 //获取当前月，与点击相减得差
                                 let currentMonth = v - 1;
-                                console.log('month--current--', v)
-                                console.log('calData--', calData)
                                 let res = changeCalData(currentMonth, calData);
-                                console.log('!!!!!', res)
                                 setCalData(res);
                                 setState(generateDate(res))
                                 setInputVal(generateDate(res))
-                                console.log('month---click', generateDate(res))
                                 setMode("date");
                             }}
                         >
