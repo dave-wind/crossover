@@ -1,7 +1,7 @@
-This project was React Component with Typescript
-
 # Crossover-UI
-> fast build React Component. Just like crossover in basketball
+> Fast Build React Component. Just like crossover in basketball
+
+This project was React Component with Typescript
 
 ## Project Entry
 * [crossover](https://dave-wind.github.io/crossover/)
