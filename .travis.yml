@@ -8,8 +8,12 @@ node_js:
 cache:
   directories:
     - node_modules
-env;
+env:
   - CI=true
+
+install:
+  - npm install
+  
 script:
   - npm run build-storybook
 
