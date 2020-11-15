@@ -21,7 +21,6 @@
     "build"
   ],
   "dependencies": {
-    "@material-ui/pickers": "^3.2.10",
     "classnames": "^2.2.6",
     "polished": "^3.6.5"
   },
@@ -40,7 +39,7 @@
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"

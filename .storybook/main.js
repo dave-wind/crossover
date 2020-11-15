@@ -16,6 +16,7 @@ module.exports = {
     "@storybook/preset-create-react-app"
   ],
   webpackFinal: async (config) => {
+    config.devtool = 'inline-source-map';
 		config.module.rules.push({
 			test: /\.(ts|tsx)$/,
 			use: [
