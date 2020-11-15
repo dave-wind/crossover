@@ -9,7 +9,7 @@ addParameters({
 	options: {
 		showRoots: true,
 		storySort: {
-			order: ['Intro', 'COLOR','Components'],
+			order: ['Introduction', 'COLOR','Components'],
 		  },
 	},
 	dependencies: {

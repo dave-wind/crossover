@@ -1,10 +1,8 @@
 # Crossover-UI
-> Fast Build React Component. Just like crossover in basketball
-
-This project was React Component with Typescript
+> Fast Build React Component with Typescript. Just like crossover in basketball
 
 ## Project Entry
-* [crossover](https://dave-wind.github.io/crossover/)
+* [crossover](https://dave-wind.github.io/crossover/index.html?path=/story/introduction--page)
 
 ## Available Scripts
 
