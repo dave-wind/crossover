@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "./static/css/main.17b2fa90.chunk.css",
+    "main.js": "./main.e045dda810ff937c5064.bundle.js",
+    "runtime~main.js": "./runtime~main.e045dda810ff937c5064.bundle.js",
+    "vendors~main.js": "./vendors~main.e045dda810ff937c5064.bundle.js",
+    "iframe.html": "./iframe.html",
+    "precache-manifest.b702ebec9f6ad8c0110ce1244064c143.js": "./precache-manifest.b702ebec9f6ad8c0110ce1244064c143.js",
+    "service-worker.js": "./service-worker.js",
+    "static/media/code-brackets.svg": "./static/media/code-brackets.c9df018b.svg",
+    "static/media/colors.svg": "./static/media/colors.771456e0.svg",
+    "static/media/comments.svg": "./static/media/comments.84015590.svg",
+    "static/media/direction.svg": "./static/media/direction.ea9e1b4e.svg",
+    "static/media/flow.svg": "./static/media/flow.0a3e69de.svg",
+    "static/media/plugin.svg": "./static/media/plugin.4e48689a.svg",
+    "static/media/repo.svg": "./static/media/repo.0d87ede8.svg",
+    "static/media/stackalt.svg": "./static/media/stackalt.f725b73e.svg",
+    "vendors~main.e045dda810ff937c5064.bundle.js.LICENSE.txt": "./vendors~main.e045dda810ff937c5064.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.e045dda810ff937c5064.bundle.js",
+    "vendors~main.e045dda810ff937c5064.bundle.js",
+    "static/css/main.17b2fa90.chunk.css",
+    "main.e045dda810ff937c5064.bundle.js"
+  ]
+}
